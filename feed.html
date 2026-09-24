@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Feed – Jaila Walker</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Recent events Jaila Walker has attended.">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+      html, body { width: 100%; margin: 0; padding: 0; overflow-x: hidden; }
+      p { font-size: 18px; }
+
+      .skip { position: absolute; left: 1rem; top: -3rem; background: #fff; color: #011627; padding: .5rem .75rem; border: 1px solid #eee; z-index: 2000; }
+      .skip:focus { top: 1rem; }
+
+      .navbar { background: #fff; border-bottom: 1px solid #eee; }
+      .navbar-brand, .nav-link { color: #011627; }
+      .nav-link:hover, .navbar-brand:hover { color: #777; }
+      .navbar .nav-link[aria-current="page"] { font-weight: 600; }
+      .navbar .nav { flex-wrap: wrap; justify-content: flex-end; }
+      @media (max-width: 576px) {
+        .navbar { padding-left: .25rem; padding-right: .25rem; }
+        .navbar .container { padding-left: 0; padding-right: 0; }
+        .navbar .nav { justify-content: center; }
+        .navbar .nav-link { padding: .35rem .18rem; font-size: .72rem; }
+      }
+
+      .heading-line { height: 3px; width: 10%; background: rgb(97, 97, 97); }
+
+      /* ---- Social-style feed ---- */
+      .feed { max-width: 30rem; margin: 0 auto; }
+      .post { background: #fff; border: 1px solid #dbdbdb; border-radius: 8px; margin-bottom: 1.75rem; overflow: hidden; }
+
+      .post-head { display: flex; align-items: center; gap: .75rem; padding: .75rem .9rem; }
+      .avatar { flex: none; width: 2.5rem; height: 2.5rem; border-radius: 50%; background: #011627; color: #fff; display: flex; align-items: center; justify-content: center; font-size: .85rem; font-weight: 600; letter-spacing: .02em; }
+      .post-who { line-height: 1.25; min-width: 0; }
+      .post-name { font-weight: 600; font-size: .95rem; color: #011627; }
+      .post-location { font-size: .85rem; color: #6c757d; }
+      .post-location .fa { margin-right: .3rem; }
+
+      /* One picture, or several that swipe sideways */
+      .post-media { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; background: #f2f2f2; }
+      .post-media img { flex: none; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; scroll-snap-align: center; display: block; }
+
+      .post-body { padding: .75rem .9rem 1rem; }
+      .post-caption { font-size: 1rem; line-height: 1.5; margin: 0; }
+      .post-caption strong { font-weight: 600; margin-right: .3rem; }
+      .post-date { font-size: .72rem; letter-spacing: .05em; text-transform: uppercase; color: #8e8e8e; margin: .6rem 0 0; }
+
+      footer { border-top: 1px solid #eee; }
+    </style>
+  </head>
+  <body>
+    <a class="skip" href="#feed">Skip to content</a>
+
+    <nav class="navbar navbar-expand sticky-top" aria-label="Primary">
+      <div class="container justify-content-end">
+        <ul class="nav">
+          <li class="nav-item"><a class="nav-link" href="index.html#about">About Me</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#education">Education</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="feed.html" aria-current="page">Feed</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section id="feed">
+      <div class="container py-3">
+        <h1 class="bold text-center py-3">Feed</h1>
+        <p class="text-center text-muted">Recent events I've attended.</p>
+      </div>
+      <div class="mx-auto heading-line"></div>
+
+      <div class="container py-4">
+        <div class="feed">
+          <p id="empty" class="text-center text-muted">No posts yet. Check back soon.</p>
+
+          <!-- NEW POSTS GO HERE: paste a copy of the template (bottom of this file) directly under this line so the newest post is on top. -->
+
+          <article class="post">
+            <div class="post-head">
+              <div class="avatar" aria-hidden="true">JW</div>
+              <div class="post-who">
+                <div class="post-name">Jaila Walker</div>
+                <div class="post-location"><i class="fa fa-map-marker" aria-hidden="true"></i>NYC</div>
+              </div>
+            </div>
+            <div class="post-media">
+              <img src="pwebsite-images/MSTrip.JPG" alt="Describe the photo" loading="lazy">
+            </div>
+            
+            <div class="post-body">
+              <p class="post-caption"><strong>Jaila Walker</strong>Morgan Stanley HBCU Day!</p>
+              <p class="post-date">September 13, 2026</p>
+            </div>
+          </article>
+
+          <!--
+            POST TEMPLATE (copy everything from <article> to </article>, paste it
+            under "NEW POSTS GO HERE" above, then edit it).
+
+            PICTURES: put your image files in a folder called "images" next to this
+            file, then point each <img src="..."> at one. Always fill in alt="..."
+            with a short description of the photo. Add more <img> lines for a post
+            with several pictures; they swipe sideways. Photos are shown as squares
+            (cropped from the center). Keep each under about 1 MB (around 1600 px
+            wide) so the page loads fast. Delete the <div class="post-media"> block
+            for a post with no picture.
+
+          <article class="post">
+            <div class="post-head">
+              <div class="avatar" aria-hidden="true">JW</div>
+              <div class="post-who">
+                <div class="post-name">Jaila Walker</div>
+                <div class="post-location"><i class="fa fa-map-marker" aria-hidden="true"></i>City, State or Venue</div>
+              </div>
+            </div>
+            <div class="post-media">
+              <img src="images/event-photo-1.jpg" alt="Describe the photo" loading="lazy">
+              <img src="images/event-photo-2.jpg" alt="Describe the photo" loading="lazy">
+            </div>
+            <div class="post-body">
+              <p class="post-caption"><strong>Jaila Walker</strong>Your comment about the event goes here.</p>
+              <p class="post-date">Month D, YYYY</p>
+            </div>
+          </article>
+          -->
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <br>
+      <div class="row mb-3">
+        <div class="col-lg-8 offset-lg-2 text-center">
+          <ul class="nav justify-content-center">
+            <li class="nav-item"><a class="nav-link" href="index.html#about">About Me</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html#projects">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html#experience">Experience</a></li>
+            <li class="nav-item"><a class="nav-link" href="feed.html">Feed</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-center">
+        <p>&copy; 2026 Jaila Walker</p>
+      </div>
+    </footer>
+
+    <script>
+      // Hide the "No posts yet" message once there is at least one post.
+      if (document.querySelector('#feed article')) {
+        document.getElementById('empty').style.display = 'none';
+      }
+    </script>
+  </body>
+</html>
