@@ -5,59 +5,126 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Portfolio of Jaila Walker, a Computer Science student at Howard University building data pipelines, automation tools and web apps.">
+    <link rel="canonical" href="https://jailawalker.com/">
+    <meta property="og:title" content="Jaila Walker">
+    <meta property="og:description" content="Portfolio of Jaila Walker, a Computer Science student at Howard University building data pipelines, automation tools and web apps.">
+    <meta property="og:url" content="https://jailawalker.com/">
+    <meta property="og:type" content="website">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+      :root {
+        --plum: #4a1730;
+        --text: #3b1a2b;
+        --pink-900: #a0114a;
+        --pink-600: #c2185b;
+        --pink-500: #e91e63;
+        --pink-300: #f48fb1;
+        --pink-200: #f8bbd0;
+        --pink-100: #fce4ec;
+        --pink-50: #fff5f8;
+      }
       html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
       html, body { width: 100%; margin: 0; padding: 0; overflow-x: hidden; }
-      p { font-size: 18px; }
+      body { font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; color: var(--text); background: #fff; }
+      p { font-size: 1.05rem; line-height: 1.7; }
+      h1, h2, h3, h4, h5 { color: var(--plum); font-weight: 600; }
+      a { color: var(--pink-900); }
+      a:hover { color: var(--pink-600); }
+      :focus-visible { outline: 3px solid var(--pink-500); outline-offset: 2px; }
 
-      .skip { position: absolute; left: 1rem; top: -3rem; background: #fff; color: #011627; padding: .5rem .75rem; border: 1px solid #eee; z-index: 2000; }
+      .skip { position: absolute; left: 1rem; top: -3rem; background: #fff; color: var(--plum); padding: .5rem .75rem; border: 1px solid var(--pink-200); z-index: 2000; }
       .skip:focus { top: 1rem; }
 
-      .navbar { background: #fff; border-bottom: 1px solid #eee; }
-      .navbar-brand, .nav-link { color: #011627; }
-      .nav-link:hover, .navbar-brand:hover { color: #777; }
-      .navbar .nav { flex-wrap: wrap; justify-content: flex-end; }
+      /* ---- Navbar ---- */
+      .site-nav { background: rgba(255, 255, 255, .96); border-bottom: 2px solid var(--pink-200); padding-top: .5rem; padding-bottom: .5rem; }
+      .site-nav .container { justify-content: space-between; }
+      .site-nav .navbar-brand { font-weight: 700; color: var(--pink-600); font-size: 1.25rem; letter-spacing: -.01em; }
+      .site-nav .navbar-brand:hover { color: var(--pink-900); }
+      .site-nav .nav { flex-wrap: wrap; justify-content: flex-end; align-items: center; }
+      .site-nav .nav-link { color: var(--plum); font-size: .95rem; font-weight: 500; padding: .4rem .8rem; border-radius: 50rem; }
+      .site-nav .nav-link:hover { background: var(--pink-100); color: var(--pink-900); }
+      .site-nav .nav-link[aria-current="page"] { background: var(--pink-100); color: var(--pink-900); font-weight: 600; }
+      .site-nav .nav-cta { background: var(--pink-600); color: #fff; font-weight: 600; margin-left: .35rem; }
+      .site-nav .nav-cta:hover { background: var(--pink-900); color: #fff; }
+      @media (max-width: 860px) {
+        .site-nav .nav-link { padding: .35rem .55rem; font-size: .88rem; }
+      }
+      @media (max-width: 720px) {
+        .site-nav .navbar-brand { display: none; }
+        .site-nav .container { justify-content: center; }
+        .site-nav .nav { justify-content: center; }
+      }
       @media (max-width: 576px) {
-        .navbar { padding-left: .25rem; padding-right: .25rem; }
-        .navbar .container { padding-left: 0; padding-right: 0; }
-        .navbar .nav { justify-content: center; }
-        .navbar .nav-link { padding: .35rem .18rem; font-size: .72rem; }
+        .site-nav { padding-left: .25rem; padding-right: .25rem; }
+        .site-nav .container { padding-left: 0; padding-right: 0; justify-content: center; }
+        .site-nav .navbar-brand { display: none; }
+        .site-nav .nav { justify-content: center; }
+        .site-nav .nav-link { padding: .35rem .16rem; font-size: .66rem; }
+        .site-nav .nav-cta { margin-left: 0; padding-left: .4rem; padding-right: .4rem; }
       }
 
-      .heading-line { height: 3px; width: 10%; background: rgb(97, 97, 97); }
-      .banner { font-family: Courier, "Courier New", monospace; font-size: 50px; margin: 0 auto; min-height: 1.4em; }
-      @media (max-width: 576px) { .banner { font-size: 32px; } }
-      .small-me { font-size: 2em; }
+      /* ---- Buttons ---- */
+      .btn-pink, .btn-pink-outline { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; border: 2px solid var(--pink-600); border-radius: 50rem; font-weight: 600; padding: .6rem 1.5rem; text-decoration: none; transition: background-color .2s, color .2s, transform .2s, box-shadow .2s; }
+      .btn-pink { background: var(--pink-600); color: #fff; box-shadow: 0 6px 16px rgba(194, 24, 91, .25); }
+      .btn-pink:hover { background: var(--pink-900); border-color: var(--pink-900); color: #fff; text-decoration: none; transform: translateY(-2px); }
+      .btn-pink-outline { background: #fff; color: var(--pink-600); }
+      .btn-pink-outline:hover { background: var(--pink-600); color: #fff; text-decoration: none; transform: translateY(-2px); }
+      .btn-sm.btn-pink, .btn-sm.btn-pink-outline { padding: .35rem 1rem; font-size: .9rem; }
+      .btn-row { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; }
 
+      /* ---- Headings ---- */
+      .heading-line { height: 4px; width: 4rem; border-radius: 4px; background: linear-gradient(90deg, var(--pink-500), var(--pink-300)); }
       .narrow { max-width: 46rem; }
-      .card { border-color: #eee; }
-      .card-subtitle { font-style: italic; }
-      .services { background: #fafafa; }
-      .star-list { list-style: none; margin: 0; padding: .75rem 0 1.5rem; text-align: left; }
-      .star-list li { font-size: 18px; padding: .15rem 0; }
-      .star-list li::before { content: "\2605"; color: #000; margin-right: .6rem; }
 
-      footer { border-top: 1px solid #eee; }
+      /* ---- Cards ---- */
+      .card { border: 1px solid var(--pink-200); border-radius: 1rem; background: #fff; box-shadow: 0 6px 18px rgba(194, 24, 91, .08); transition: transform .2s, box-shadow .2s; }
+      .card:hover { transform: translateY(-3px); box-shadow: 0 12px 26px rgba(194, 24, 91, .16); }
+      .card-title { color: var(--plum); }
+      .card-subtitle { font-style: italic; color: var(--pink-900) !important; }
 
-      /* Fade-in on load, like the animated blocks on the reference site */
-      .fade-in { animation: fadeIn 1s ease-out both; }
-      .delay-1 { animation-delay: 1s; }
-      .delay-2 { animation-delay: 2s; }
-      @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+      /* ---- Footer ---- */
+      footer { background: var(--pink-100); border-top: 3px solid var(--pink-300); margin-top: 0; }
+      footer .nav-link { color: var(--plum); border-radius: 50rem; }
+      footer .nav-link:hover { background: #fff; color: var(--pink-900); }
+
       @media (prefers-reduced-motion: reduce) {
-        .fade-in { animation: none; }
         html { scroll-behavior: auto; }
+        .card, .btn-pink, .btn-pink-outline { transition: none; }
+        .card:hover, .btn-pink:hover, .btn-pink-outline:hover { transform: none; }
       }
+
+      /* ---- Home page ---- */
+      .hero { background: radial-gradient(circle at 12% 15%, var(--pink-200) 0, transparent 38%), radial-gradient(circle at 90% 8%, var(--pink-100) 0, transparent 45%), var(--pink-50); text-align: center; padding: 3.5rem 0 3.5rem; }
+      .eyebrow { display: inline-block; background: #fff; color: var(--pink-900); border: 1px solid var(--pink-200); border-radius: 50rem; padding: .3rem 1rem; font-size: .85rem; font-weight: 600; margin-bottom: 1.25rem; }
+      .banner { font-family: Courier, "Courier New", monospace; color: var(--plum); font-size: 3.2rem; margin: 0 auto; min-height: 1.4em; line-height: 1.3; }
+      @media (max-width: 576px) { .banner { font-size: 2rem; } }
+      .tagline { max-width: 34rem; margin: .5rem auto 1.75rem; color: var(--text); }
+      .social { display: flex; justify-content: center; gap: .75rem; margin-top: 1.75rem; }
+      .social a { width: 2.75rem; height: 2.75rem; border-radius: 50%; background: #fff; border: 2px solid var(--pink-300); color: var(--pink-600); display: inline-flex; align-items: center; justify-content: center; font-size: 1.25rem; text-decoration: none; transition: background-color .2s, color .2s, transform .2s; }
+      .social a:hover { background: var(--pink-600); color: #fff; transform: translateY(-2px); }
+
+      .about-text { display: flow-root; }
+      .portrait { float: left; width: 12rem; height: 12rem; margin: .5rem 1.75rem .75rem 0; shape-outside: circle(50%); border-radius: 50%; object-fit: cover; object-position: center 10%; border: 4px solid var(--pink-300); box-shadow: 0 8px 22px rgba(194, 24, 91, .2); }
+      @media (max-width: 576px) { .portrait { float: none; display: block; margin: 0 auto 1.25rem; width: 10rem; height: 10rem; } }
+      #projects, #education, #contact { background: var(--pink-50); }
+      .services { background: #fff; }
+
+      .star-list { list-style: none; margin: 0; padding: .75rem 0 1.5rem; text-align: left; }
+      .star-list li { font-size: 1.05rem; padding: .15rem 0; }
+      .star-list li::before { content: "\2605"; color: #000; margin-right: .6rem; }
     </style>
   </head>
   <body>
     <a class="skip" href="#about">Skip to content</a>
 
-    <nav class="navbar navbar-expand sticky-top" aria-label="Primary">
-      <div class="container justify-content-end">
+    <nav class="navbar navbar-expand sticky-top site-nav" aria-label="Primary">
+      <div class="container">
+        <a class="navbar-brand" href="#home">Jaila Walker</a>
         <ul class="nav">
           <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
           <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
@@ -65,36 +132,48 @@
           <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
           <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
           <li class="nav-item"><a class="nav-link" href="feed.html">Feed</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link nav-cta" href="#contact">Contact</a></li>
         </ul>
       </div>
     </nav>
 
-    <!-- About -->
-    <section class="home" id="about">
-      <div class="container py-3">
-        <div class="text-center banner" style="width:100%">
-          <p class="banner"><span class="typed">Jaila Walker.</span></p>
+    <!-- Hero -->
+    <header class="hero" id="home">
+      <div class="container">
+        <span class="eyebrow">Computer Science &middot; Howard University</span>
+        <div class="banner"><span class="typed">Jaila Walker.</span></div>
+        <p class="tagline">I build data pipelines, automation tools and web apps.</p>
+        <div class="btn-row">
+          <a class="btn-pink" href="#projects">View Projects <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+          <a class="btn-pink-outline" href="feed.html">See My Feed</a>
+          <a class="btn-pink-outline" href="#contact">Contact Me</a>
         </div>
-        <nav class="fade-in delay-1 nav small-me justify-content-center" aria-label="Social">
-          <a class="nav-link" href="https://github.com/jaila-bison" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
-          <a class="nav-link" href="https://www.linkedin.com/in/jaila-walker" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
-          <a class="nav-link" href="mailto:jaila.walker@bison.howard.edu" aria-label="Email"><i class="fa fa-envelope"></i></a>
-        </nav>
-        <h1 class="bold text-center pb-3 fade-in">About Me</h1>
+        <div class="social" aria-label="Social links">
+          <a href="https://github.com/jaila-bison" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/jaila-walker" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+          <a href="mailto:contact@jailawalker.com" aria-label="Email"><i class="fa fa-envelope"></i></a>
+        </div>
       </div>
-      <div class="mx-auto fade-in delay-1 heading-line"></div>
-      <div class="fade-in delay-1 container narrow py-3">
-        <p class="py-3 text-justify">
-          I am a Computer Science student at Howard University with hands-on experience building data pipelines,
-          automating data collection and designing analytics tools. I work with real-world, unstructured data using
-          Python and SQL, and I like work I can measure, from 40% fewer client risk oversights to a 30% gain in daily
-          operational efficiency through automated data pipelines.
+    </header>
+
+    <!-- About -->
+    <section id="about">
+      <div class="container py-3">
+        <h1 class="bold text-center pt-5 pb-3">About Me</h1>
+      </div>
+      <div class="mx-auto heading-line"></div>
+      <div class="container narrow py-3 about-text">
+        <img class="portrait" src="pwebsite-images/headshot.jpg" alt="Portrait of Jaila Walker" width="800" height="1000">
+        <p class="py-3">
+          I am a Computer Science student at Howard University who pairs technical development with business
+          problem-solving: gathering requirements, translating them into user stories, and delivering AI-assisted,
+          data-driven solutions in deadline-driven settings. I like work I can measure, from 40% fewer client risk
+          oversights to a 30% gain in daily operational efficiency through automated data pipelines.
         </p>
-        <p class="text-justify">
+        <p class="pb-4">
           It started with a summer at Apple, where I built a game that became a finalist in the DC Can Code showcase.
           Today I split my time between classes, building projects like the Community Resource Finder, and the NSBE and
-          cybersecurity communities on campus. I graduate in May 2027.
+          cybersecurity communities on campus. I graduate in May 2027. Outside of tech, I crochet, bake and watch anime.
         </p>
       </div>
     </section>
@@ -112,25 +191,18 @@
             <h4 class="card-title">Community Resource Finder</h4>
             <h5 class="card-subtitle text-muted text-center pb-2">Web app, Python</h5>
             <p class="card-text">A free web app that helps people find food, health care, mental health support, legal help, housing, utility assistance, jobs and more. Pick a state and a need, then filter by cost (free, sliding scale or low cost), search, and switch between a list and a map view. It has resources in all 50 states and D.C., needs no sign-up and collects no personal details, and links are re-checked daily so people don't hit dead ends. It works in any web browser and can also be installed as a web app on a phone or computer.</p>
-            <p class="card-text text-muted">I created the entire project with the help of Claude Code. Built with Python and Flask (served with Gunicorn), PostgreSQL, HTML, CSS and JavaScript, and hosted on Render. <a href="https://community-resource-finder-vz1u.onrender.com/" target="_blank" rel="noopener">View the live site</a>.</p>
+            <p class="card-text text-muted">I created the entire project with the help of Claude Code. Built with Python and Flask (served with Gunicorn), PostgreSQL, HTML, CSS and JavaScript, and hosted on Render.</p>
+            <a class="btn-pink btn-sm" href="https://resource-finder.jailawalker.com" target="_blank" rel="noopener">View live site <i class="fa fa-external-link" aria-hidden="true"></i></a>
           </div>
         </div>
         <br>
         <div class="card text-justify text-left">
           <div class="card-body">
-            <h4 class="card-title">Sorting Algorithm Identifier</h4>
-            <h5 class="card-subtitle text-muted text-center pb-2">Python tool</h5>
-            <p class="card-text">A benchmarking tool that runs and times QuickSort, MergeSort and BubbleSort across different input sizes and compares runtime and memory use. A suite of targeted test cases then works backwards: given the performance profile of an unknown algorithm, it classifies which sort produced it.</p>
-            <p class="card-text text-muted">Built with Python. Automates timing and memory profiling and generates side-by-side comparison reports.</p>
-          </div>
-        </div>
-        <br>
-        <div class="card text-justify text-left">
-          <div class="card-body">
-            <h4 class="card-title">Absurdle Clone</h4>
-            <h5 class="card-subtitle text-muted text-center pb-2">Team project, Python</h5>
-            <p class="card-text">I directed a team project to build a Python clone of Absurdle, a word game that fights back. Its adversarial word-selection algorithm keeps narrowing toward whichever answer leaves the largest set of candidates alive each turn.</p>
-            <p class="card-text text-muted">Built with Python and an object-oriented design: game logic, scoring and duplicate-guess handling are separate, reusable components. Procedural word-pool generation and optimized data structures reduce memory use.</p>
+            <h4 class="card-title">PawPal+</h4>
+            <h5 class="card-subtitle text-muted text-center pb-2">Web app, Python</h5>
+            <p class="card-text">A pet care planner that helps busy owners stay consistent. Add pets and care tasks like walks, feeding, meds and grooming, and PawPal+ builds a daily schedule around your available time and each task's priority, then explains why it chose that plan. Recurring tasks create their next occurrence automatically, tasks can be filtered and sorted several ways, and the scheduler warns about time overlaps, impossible deadlines and circular dependencies instead of failing.</p>
+            <p class="card-text text-muted">Built with Python and Streamlit using an object-oriented design planned in UML first, with a greedy O(n log n) scheduler and pytest tests for the core scheduling behavior.</p>
+            <a class="btn-pink btn-sm" href="https://pawpal.jailawalker.com" target="_blank" rel="noopener">View live app <i class="fa fa-external-link" aria-hidden="true"></i></a>
           </div>
         </div>
         <br>
@@ -152,6 +224,33 @@
           </div>
         </div>
         <br>
+        <div class="card text-justify text-left">
+          <div class="card-body">
+            <h4 class="card-title">LaunchU</h4>
+            <h5 class="card-subtitle text-muted text-center pb-2">Career analytics app, Fall 2026</h5>
+            <p class="card-text">After Amazon's AI teaching, research and immersion-day poster sessions, I noticed that early-career students had no clear way to act on labor-market data, so I built a career-analytics app in AWS QuickSight to close that gap. It translates hiring, skills and internship research into an easy-to-follow decision guide, so a student with no data background can see where demand is growing and what to do next.</p>
+            <p class="card-text text-muted">Built with AWS QuickSight.</p>
+          </div>
+        </div>
+        <br>
+        <div class="card text-justify text-left">
+          <div class="card-body">
+            <h4 class="card-title">Sorting Algorithm Identifier</h4>
+            <h5 class="card-subtitle text-muted text-center pb-2">Python tool, Spring 2026</h5>
+            <p class="card-text">A benchmarking tool that runs and times QuickSort, MergeSort and BubbleSort across different input sizes and compares runtime and memory use. A suite of targeted test cases then works backwards: given the performance profile of an unknown algorithm, it classifies which sort produced it.</p>
+            <p class="card-text text-muted">Built with Python. Automates timing and memory profiling and generates side-by-side comparison reports.</p>
+          </div>
+        </div>
+        <br>
+        <div class="card text-justify text-left">
+          <div class="card-body">
+            <h4 class="card-title">Absurdle Clone</h4>
+            <h5 class="card-subtitle text-muted text-center pb-2">Team project, Python, Fall 2024</h5>
+            <p class="card-text">I directed a team project to build a Python clone of Absurdle, a word game that fights back. Its adversarial word-selection algorithm keeps narrowing toward whichever answer leaves the largest set of candidates alive each turn.</p>
+            <p class="card-text text-muted">Built with Python and an object-oriented design: game logic, scoring and duplicate-guess handling are separate, reusable components. Procedural word-pool generation and optimized data structures reduce memory use.</p>
+          </div>
+        </div>
+        <br>
       </div>
     </section>
 
@@ -165,9 +264,9 @@
         <br>
         <div class="card text-justify text-left">
           <div class="card-body">
-            <h4 class="card-title">Care Coordinator @ Preventive Measures</h4>
-            <h5 class="card-subtitle text-muted text-center pb-2">June 2023-Present</h5>
-            <p class="card-text">Washington, D.C. I automate spreadsheet workflows with Advanced Excel and Python to gather, clean and standardize healthcare and demographic data, and I maintain HIPAA-compliant tracking spreadsheets for secure sharing across clinical teams. My analysis of patient progress metrics identified at-risk clients and helped improve treatment plan completion rates by 15%.</p>
+            <h4 class="card-title">Community Support Worker @ Preventive Measures</h4>
+            <h5 class="card-subtitle text-muted text-center pb-2">June 2023-August 2025</h5>
+            <p class="card-text">Washington, D.C. Automated spreadsheet workflows with Advanced Excel and Python to gather, clean and standardize healthcare and demographic data from client intake and outreach. Used ChatGPT with de-identified data to cut report drafting time by roughly 75% and prepare possible-diagnosis summaries for clinical team review. Built HIPAA-compliant centralized tracking spreadsheets for secure cross-team data sharing, and analyzed patient progress metrics to flag at-risk clients, informing an outreach strategy that improved treatment plan completion rates by 15%.</p>
           </div>
         </div>
         <br>
@@ -175,7 +274,7 @@
           <div class="card-body">
             <h4 class="card-title">Software Engineering Apprentice @ Accenture</h4>
             <h5 class="card-subtitle text-muted text-center pb-2">October 2021-August 2023</h5>
-            <p class="card-text">Arlington, VA. Built Python web scrapers and ingestion scripts that collected unstructured public and social media data for client risk dossiers. Automated recurring data collection pipelines, improving daily operational efficiency by 30%, and wrote, tested and debugged more than 500 lines of modular Python.</p>
+            <p class="card-text">Arlington, VA. Conducted client due diligence using approved public sources, building automated Python scripts to collect and compile unstructured public and social media data into structured research profiles for stakeholder review. Drove Python automation workflows for recurring data collection pipelines, improving daily operational efficiency by 30%. Developed an interactive web application (HTML/CSS/Python) to visualize client due-diligence findings and present data-driven intelligence to stakeholders, reducing client risk oversights by 40%.</p>
           </div>
         </div>
         <br>
@@ -183,7 +282,7 @@
           <div class="card-body">
             <h4 class="card-title">Software Development Intern @ Apple</h4>
             <h5 class="card-subtitle text-muted text-center pb-2">July 2021-August 2021</h5>
-            <p class="card-text">Washington, D.C. Designed and developed a game in Swift with SpriteKit and Core Graphics, and led its UI and UX design. It was selected as a finalist in the DC Can Code High School Showcase.</p>
+            <p class="card-text">Washington, D.C. Designed and developed a game in Swift using SpriteKit and Core Graphics, implementing game logic, sprite animation, collision handling and touch controls under a fixed showcase deadline; selected as a finalist in the DC Can Code High School Showcase. Led UI/UX design, creating custom graphics and interface layouts refined through playtesting feedback, improving user engagement by 25%.</p>
           </div>
         </div>
         <br>
@@ -202,23 +301,25 @@
           <div class="card-body">
             <h4 class="card-title">B.S. Computer Science @ Howard University</h4>
             <h5 class="card-subtitle text-muted text-center pb-2">Expected May 2027</h5>
-            <p class="card-text">Washington, D.C. Morgan Stanley HBCU Scholar, DC-CAP Scholar and National Honors Society.</p>
+            <p class="card-text">Washington, D.C. Morgan Stanley HBCU Scholar and DC-CAP Scholar.</p>
+            <p class="card-text"><strong>Relevant coursework:</strong> Software Engineering, Database Systems, Applied Data Science, Introduction to Human-Computer Interaction and Fundamentals of Algorithms.</p>
+            <ul class="star-list" style="padding-bottom: 0;">
+              <li><strong>National Society of Black Engineers</strong> (member, September 2023 to present): professional development workshops, networking events and outreach to increase STEM awareness.</li>
+              <li><strong>Howard University Cybersecurity Club</strong> (member, September 2024 to present): hands-on exercises and collaborative projects in ethical hacking and data protection.</li>
+            </ul>
           </div>
         </div>
         <br>
         <div class="card text-justify text-left">
           <div class="card-body">
-            <h4 class="card-title">Member @ National Society of Black Engineers</h4>
-            <h5 class="card-subtitle text-muted text-center pb-2">September 2023-Present</h5>
-            <p class="card-text">Take part in professional development workshops and networking events, and collaborate on outreach to increase STEM awareness.</p>
-          </div>
-        </div>
-        <br>
-        <div class="card text-justify text-left">
-          <div class="card-body">
-            <h4 class="card-title">Member @ Howard University Cybersecurity Club</h4>
-            <h5 class="card-subtitle text-muted text-center pb-2">September 2024-Present</h5>
-            <p class="card-text">Complete hands-on exercises and collaborative projects in ethical hacking and data protection.</p>
+            <h4 class="card-title">IT &amp; Computer Science Pathway Student @ IDEA PCS High School</h4>
+            <h5 class="card-subtitle text-muted text-center pb-2">Washington, D.C.</h5>
+            <ul class="star-list" style="padding-bottom: 0;">
+              <li>Salutatorian</li>
+              <li>National Honors Society</li>
+              <li>Dual enrolled</li>
+              <li>Tech apprentice</li>
+            </ul>
           </div>
         </div>
         <br>
@@ -237,70 +338,67 @@
             <li>Java</li>
             <li>Swift</li>
             <li>C++</li>
-            <li>HTML5</li>
-            <li>CSS3</li>
+            <li>HTML</li>
+            <li>CSS</li>
           </ul>
         <em><h3>Frameworks &amp; Databases</h3></em>
           <ul class="star-list">
             <li>Flask</li>
             <li>PostgreSQL</li>
           </ul>
-        <em><h3>Tools</h3></em>
+        <em><h3>Tools &amp; Platforms</h3></em>
           <ul class="star-list">
             <li>Microsoft Office 365</li>
             <li>Google Workspace</li>
             <li>Adobe Creative Cloud</li>
+            <li>AWS QuickSight</li>
             <li>ChatGPT (development and report drafting)</li>
-            <li>Claude Code (AI-assisted development)</li>
             <li>GitHub</li>
           </ul>
-        <em><h3>Strengths</h3></em>
+        <em><h3>Agentic Development</h3></em>
           <ul class="star-list">
-            <li>Data pipeline development</li>
-            <li>Product design</li>
-            <li>Project management</li>
+            <li>Claude Code</li>
+            <li>Gemini</li>
+          </ul>
+        <em><h3>Competencies</h3></em>
+          <ul class="star-list">
+            <li>Data Pipeline Development</li>
+            <li>Requirements Gathering</li>
+            <li>Agile/Scrum</li>
+            <li>Stakeholder Management</li>
           </ul>
       </div>
     </section>
 
     <!-- Contact -->
-    <section class="home" id="contact">
+    <section id="contact">
       <div class="container py-3">
-        <h1 class="bold text-center py-3">Contact</h1>
+        <h1 class="bold text-center pt-5 pb-3">Contact</h1>
       </div>
       <div class="mx-auto heading-line"></div>
       <div class="container narrow py-3 text-center">
         <p class="py-3">Hiring, or building something? Send me a note about a role, a project or a question. Email is the best way to reach me.</p>
-        <p>
-          <a href="mailto:jaila.walker@bison.howard.edu">jaila.walker@bison.howard.edu</a>
-        </p>
-        <nav class="nav small-me justify-content-center" aria-label="Contact links">
-          <a class="nav-link" href="https://github.com/jaila-bison" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
-          <a class="nav-link" href="https://www.linkedin.com/in/jaila-walker" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
-          <a class="nav-link" href="mailto:jaila.walker@bison.howard.edu" aria-label="Email"><i class="fa fa-envelope"></i></a>
-        </nav>
+        <div class="btn-row pb-5">
+          <a class="btn-pink" href="mailto:contact@jailawalker.com"><i class="fa fa-envelope" aria-hidden="true"></i> Email Me</a>
+          <a class="btn-pink-outline" href="https://www.linkedin.com/in/jaila-walker" target="_blank" rel="noopener"><i class="fa fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+          <a class="btn-pink-outline" href="https://github.com/jaila-bison" target="_blank" rel="noopener"><i class="fa fa-github" aria-hidden="true"></i> GitHub</a>
+        </div>
       </div>
     </section>
 
-    <div id="bottom">
-      <footer>
-        <br>
-        <div class="row mb-3">
-          <div class="col-lg-8 offset-lg-2 text-center">
-            <ul class="nav justify-content-center">
-              <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
-              <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-              <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-              <li class="nav-item"><a class="nav-link" href="feed.html">Feed</a></li>
-              <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="copyright-info text-center">
-          <p>&copy; 2026 Jaila Walker</p>
-        </div>
-      </footer>
-    </div>
+    <footer>
+      <div class="container text-center py-4">
+        <ul class="nav justify-content-center">
+          <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="feed.html">Feed</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+        <p class="mb-3 mt-2">&copy; 2026 Jaila Walker</p>
+        <a class="btn-pink-outline btn-sm" href="#home"><i class="fa fa-arrow-up" aria-hidden="true"></i> Back to top</a>
+      </div>
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

@@ -8,56 +8,124 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+      :root {
+        --plum: #4a1730;
+        --text: #3b1a2b;
+        --pink-900: #a0114a;
+        --pink-600: #c2185b;
+        --pink-500: #e91e63;
+        --pink-300: #f48fb1;
+        --pink-200: #f8bbd0;
+        --pink-100: #fce4ec;
+        --pink-50: #fff5f8;
+      }
       html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
       html, body { width: 100%; margin: 0; padding: 0; overflow-x: hidden; }
-      p { font-size: 18px; }
+      body { font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; color: var(--text); background: #fff; }
+      p { font-size: 1.05rem; line-height: 1.7; }
+      h1, h2, h3, h4, h5 { color: var(--plum); font-weight: 600; }
+      a { color: var(--pink-900); }
+      a:hover { color: var(--pink-600); }
+      :focus-visible { outline: 3px solid var(--pink-500); outline-offset: 2px; }
 
-      .skip { position: absolute; left: 1rem; top: -3rem; background: #fff; color: #011627; padding: .5rem .75rem; border: 1px solid #eee; z-index: 2000; }
+      .skip { position: absolute; left: 1rem; top: -3rem; background: #fff; color: var(--plum); padding: .5rem .75rem; border: 1px solid var(--pink-200); z-index: 2000; }
       .skip:focus { top: 1rem; }
 
-      .navbar { background: #fff; border-bottom: 1px solid #eee; }
-      .navbar-brand, .nav-link { color: #011627; }
-      .nav-link:hover, .navbar-brand:hover { color: #777; }
-      .navbar .nav-link[aria-current="page"] { font-weight: 600; }
-      .navbar .nav { flex-wrap: wrap; justify-content: flex-end; }
+      /* ---- Navbar ---- */
+      .site-nav { background: rgba(255, 255, 255, .96); border-bottom: 2px solid var(--pink-200); padding-top: .5rem; padding-bottom: .5rem; }
+      .site-nav .container { justify-content: space-between; }
+      .site-nav .navbar-brand { font-weight: 700; color: var(--pink-600); font-size: 1.25rem; letter-spacing: -.01em; }
+      .site-nav .navbar-brand:hover { color: var(--pink-900); }
+      .site-nav .nav { flex-wrap: wrap; justify-content: flex-end; align-items: center; }
+      .site-nav .nav-link { color: var(--plum); font-size: .95rem; font-weight: 500; padding: .4rem .8rem; border-radius: 50rem; }
+      .site-nav .nav-link:hover { background: var(--pink-100); color: var(--pink-900); }
+      .site-nav .nav-link[aria-current="page"] { background: var(--pink-100); color: var(--pink-900); font-weight: 600; }
+      .site-nav .nav-cta { background: var(--pink-600); color: #fff; font-weight: 600; margin-left: .35rem; }
+      .site-nav .nav-cta:hover { background: var(--pink-900); color: #fff; }
+      @media (max-width: 860px) {
+        .site-nav .nav-link { padding: .35rem .55rem; font-size: .88rem; }
+      }
+      @media (max-width: 720px) {
+        .site-nav .navbar-brand { display: none; }
+        .site-nav .container { justify-content: center; }
+        .site-nav .nav { justify-content: center; }
+      }
       @media (max-width: 576px) {
-        .navbar { padding-left: .25rem; padding-right: .25rem; }
-        .navbar .container { padding-left: 0; padding-right: 0; }
-        .navbar .nav { justify-content: center; }
-        .navbar .nav-link { padding: .35rem .18rem; font-size: .72rem; }
+        .site-nav { padding-left: .25rem; padding-right: .25rem; }
+        .site-nav .container { padding-left: 0; padding-right: 0; justify-content: center; }
+        .site-nav .navbar-brand { display: none; }
+        .site-nav .nav { justify-content: center; }
+        .site-nav .nav-link { padding: .35rem .16rem; font-size: .66rem; }
+        .site-nav .nav-cta { margin-left: 0; padding-left: .4rem; padding-right: .4rem; }
       }
 
-      .heading-line { height: 3px; width: 10%; background: rgb(97, 97, 97); }
+      /* ---- Buttons ---- */
+      .btn-pink, .btn-pink-outline { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; border: 2px solid var(--pink-600); border-radius: 50rem; font-weight: 600; padding: .6rem 1.5rem; text-decoration: none; transition: background-color .2s, color .2s, transform .2s, box-shadow .2s; }
+      .btn-pink { background: var(--pink-600); color: #fff; box-shadow: 0 6px 16px rgba(194, 24, 91, .25); }
+      .btn-pink:hover { background: var(--pink-900); border-color: var(--pink-900); color: #fff; text-decoration: none; transform: translateY(-2px); }
+      .btn-pink-outline { background: #fff; color: var(--pink-600); }
+      .btn-pink-outline:hover { background: var(--pink-600); color: #fff; text-decoration: none; transform: translateY(-2px); }
+      .btn-sm.btn-pink, .btn-sm.btn-pink-outline { padding: .35rem 1rem; font-size: .9rem; }
+      .btn-row { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; }
 
-      /* ---- Social-style feed ---- */
+      /* ---- Headings ---- */
+      .heading-line { height: 4px; width: 4rem; border-radius: 4px; background: linear-gradient(90deg, var(--pink-500), var(--pink-300)); }
+      .narrow { max-width: 46rem; }
+
+      /* ---- Cards ---- */
+      .card { border: 1px solid var(--pink-200); border-radius: 1rem; background: #fff; box-shadow: 0 6px 18px rgba(194, 24, 91, .08); transition: transform .2s, box-shadow .2s; }
+      .card:hover { transform: translateY(-3px); box-shadow: 0 12px 26px rgba(194, 24, 91, .16); }
+      .card-title { color: var(--plum); }
+      .card-subtitle { font-style: italic; color: var(--pink-900) !important; }
+
+      /* ---- Footer ---- */
+      footer { background: var(--pink-100); border-top: 3px solid var(--pink-300); margin-top: 0; }
+      footer .nav-link { color: var(--plum); border-radius: 50rem; }
+      footer .nav-link:hover { background: #fff; color: var(--pink-900); }
+
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        .card, .btn-pink, .btn-pink-outline { transition: none; }
+        .card:hover, .btn-pink:hover, .btn-pink-outline:hover { transform: none; }
+      }
+
+      /* ---- Feed page ---- */
+      .page-hero { background: radial-gradient(circle at 12% 15%, var(--pink-200) 0, transparent 38%), radial-gradient(circle at 90% 8%, var(--pink-100) 0, transparent 45%), var(--pink-50); text-align: center; padding: 2.5rem 0 2rem; }
+      .page-hero h1 { font-size: 2.4rem; margin-bottom: .25rem; }
+      .feed-wrap { background: var(--pink-50); padding: 2rem 0 3rem; }
       .feed { max-width: 30rem; margin: 0 auto; }
-      .post { background: #fff; border: 1px solid #dbdbdb; border-radius: 8px; margin-bottom: 1.75rem; overflow: hidden; }
+      .post { background: #fff; border: 1px solid var(--pink-200); border-radius: 1rem; margin-bottom: 1.75rem; overflow: hidden; box-shadow: 0 6px 18px rgba(194, 24, 91, .08); }
 
       .post-head { display: flex; align-items: center; gap: .75rem; padding: .75rem .9rem; }
-      .avatar { flex: none; width: 2.5rem; height: 2.5rem; border-radius: 50%; background: #011627; color: #fff; display: flex; align-items: center; justify-content: center; font-size: .85rem; font-weight: 600; letter-spacing: .02em; }
+      .avatar { flex: none; width: 2.5rem; height: 2.5rem; border-radius: 50%; background: linear-gradient(135deg, var(--pink-500), var(--pink-300)); color: #fff; display: flex; align-items: center; justify-content: center; font-size: .85rem; font-weight: 600; letter-spacing: .02em; }
       .post-who { line-height: 1.25; min-width: 0; }
-      .post-name { font-weight: 600; font-size: .95rem; color: #011627; }
-      .post-location { font-size: .85rem; color: #6c757d; }
+      .post-name { font-weight: 600; font-size: .95rem; color: var(--plum); }
+      .post-location { font-size: .85rem; color: var(--pink-900); }
       .post-location .fa { margin-right: .3rem; }
 
       /* One picture, or several that swipe sideways */
-      .post-media { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; background: #f2f2f2; }
+      .post-media { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; background: var(--pink-100); }
       .post-media img { flex: none; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; scroll-snap-align: center; display: block; }
+
+      /* Wide photos: show the whole picture instead of cropping to a square */
+      .post-media.landscape img { aspect-ratio: 3 / 2; object-fit: contain; background: var(--pink-100); }
 
       .post-body { padding: .75rem .9rem 1rem; }
       .post-caption { font-size: 1rem; line-height: 1.5; margin: 0; }
-      .post-caption strong { font-weight: 600; margin-right: .3rem; }
-      .post-date { font-size: .72rem; letter-spacing: .05em; text-transform: uppercase; color: #8e8e8e; margin: .6rem 0 0; }
-
-      footer { border-top: 1px solid #eee; }
+      .post-caption strong { font-weight: 600; margin-right: .3rem; color: var(--plum); }
+      .post-date { font-size: .72rem; letter-spacing: .05em; text-transform: uppercase; color: #8a5a70; margin: .6rem 0 0; }
     </style>
   </head>
   <body>
     <a class="skip" href="#feed">Skip to content</a>
 
-    <nav class="navbar navbar-expand sticky-top" aria-label="Primary">
-      <div class="container justify-content-end">
+    <nav class="navbar navbar-expand sticky-top site-nav" aria-label="Primary">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Jaila Walker</a>
         <ul class="nav">
           <li class="nav-item"><a class="nav-link" href="index.html#about">About Me</a></li>
           <li class="nav-item"><a class="nav-link" href="index.html#projects">Projects</a></li>
@@ -65,19 +133,21 @@
           <li class="nav-item"><a class="nav-link" href="index.html#education">Education</a></li>
           <li class="nav-item"><a class="nav-link" href="index.html#skills">Skills</a></li>
           <li class="nav-item"><a class="nav-link" href="feed.html" aria-current="page">Feed</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link nav-cta" href="index.html#contact">Contact</a></li>
         </ul>
       </div>
     </nav>
 
-    <section id="feed">
-      <div class="container py-3">
-        <h1 class="bold text-center py-3">Feed</h1>
-        <p class="text-center text-muted">Recent events I've attended.</p>
+    <header class="page-hero">
+      <div class="container">
+        <h1>Feed</h1>
+        <p class="mb-3">Recent events I've attended.</p>
+        <div class="mx-auto heading-line"></div>
       </div>
-      <div class="mx-auto heading-line"></div>
+    </header>
 
-      <div class="container py-4">
+    <section id="feed" class="feed-wrap">
+      <div class="container">
         <div class="feed">
           <p id="empty" class="text-center text-muted">No posts yet. Check back soon.</p>
 
@@ -88,13 +158,30 @@
               <div class="avatar" aria-hidden="true">JW</div>
               <div class="post-who">
                 <div class="post-name">Jaila Walker</div>
-                <div class="post-location"><i class="fa fa-map-marker" aria-hidden="true"></i>NYC</div>
+                <div class="post-location"><i class="fa fa-map-marker" aria-hidden="true"></i>Blackburn Center, Howard University</div>
               </div>
             </div>
             <div class="post-media">
-              <img src="pwebsite-images/MSTrip.JPG" alt="Describe the photo" loading="lazy">
+              <img src="pwebsite-images/AWSMLU-table.jpg" alt="Selfie at a round table with five other attendees and their laptops at the symposium" loading="lazy">
             </div>
-            
+            <div class="post-body">
+              <p class="post-caption"><strong>Jaila Walker</strong>AWS-MLU AI Symposium</p>
+              <p class="post-date">September 21, 2026</p>
+            </div>
+          </article>
+
+          <article class="post">
+            <div class="post-head">
+              <div class="avatar" aria-hidden="true">JW</div>
+              <div class="post-who">
+                <div class="post-name">Jaila Walker</div>
+                <div class="post-location"><i class="fa fa-map-marker" aria-hidden="true"></i>NYC</div>
+              </div>
+            </div>
+            <div class="post-media landscape">
+              <img src="pwebsite-images/MSTrip.JPG" alt="Photo from the Morgan Stanley HBCU Day trip" loading="lazy">
+              <img src="pwebsite-images/HBCU-scholars-day.jpg" alt="Group photo of attendees at the 2026 Morgan Stanley HBCU Scholars Day, standing in rows in front of event screens" loading="lazy">
+            </div>
             <div class="post-body">
               <p class="post-caption"><strong>Jaila Walker</strong>Morgan Stanley HBCU Day!</p>
               <p class="post-date">September 13, 2026</p>
@@ -136,20 +223,16 @@
     </section>
 
     <footer>
-      <br>
-      <div class="row mb-3">
-        <div class="col-lg-8 offset-lg-2 text-center">
-          <ul class="nav justify-content-center">
-            <li class="nav-item"><a class="nav-link" href="index.html#about">About Me</a></li>
-            <li class="nav-item"><a class="nav-link" href="index.html#projects">Projects</a></li>
-            <li class="nav-item"><a class="nav-link" href="index.html#experience">Experience</a></li>
-            <li class="nav-item"><a class="nav-link" href="feed.html">Feed</a></li>
-            <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="text-center">
-        <p>&copy; 2026 Jaila Walker</p>
+      <div class="container text-center py-4">
+        <ul class="nav justify-content-center">
+          <li class="nav-item"><a class="nav-link" href="index.html#about">About Me</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="feed.html">Feed</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+        </ul>
+        <p class="mb-3 mt-2">&copy; 2026 Jaila Walker</p>
+        <a class="btn-pink-outline btn-sm" href="#feed"><i class="fa fa-arrow-up" aria-hidden="true"></i> Back to top</a>
       </div>
     </footer>
 
