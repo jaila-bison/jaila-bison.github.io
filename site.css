@@ -87,8 +87,8 @@ footer .nav-link:hover { background: #fff; color: var(--pink-900); }
 .bg-soft { background: var(--pink-50); }
 
 .about-text { display: flow-root; }
-.portrait { float: left; width: 12rem; height: 12rem; margin: .5rem 1.75rem .75rem 0; shape-outside: circle(50%); border-radius: 50%; object-fit: cover; object-position: center 10%; border: 4px solid var(--pink-300); box-shadow: 0 8px 22px rgba(194, 24, 91, .2); }
-@media (max-width: 576px) { .portrait { float: none; display: block; margin: 0 auto 1.25rem; width: 10rem; height: 10rem; } }
+.portrait { float: left; width: 12rem; height: 15rem; margin: .35rem 1.75rem .75rem 0; border-radius: .75rem; object-fit: cover; object-position: center top; border: 4px solid var(--pink-300); box-shadow: 0 8px 22px rgba(194, 24, 91, .2); }
+@media (max-width: 576px) { .portrait { float: none; display: block; margin: 0 auto 1.25rem; width: 10rem; height: 12.5rem; } }
 .star-list { list-style: none; margin: 0; padding: .75rem 0 1.5rem; text-align: left; }
 .star-list li { font-size: 1.05rem; padding: .15rem 0; }
 .star-list li::before { content: "\2605"; color: #000; margin-right: .6rem; }
